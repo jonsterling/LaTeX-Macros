@@ -1,0 +1,63 @@
+\usepackage{pstricks}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{fontspec,xunicode,xltxtra,url,wrapfig,setspace,lettrine,fullpage,multicol,float,booktabs}
+
+
+%% General School Assignment Constructs
+\newenvironment{assignment_description}%
+{\begin{quotation}\begin{it}\noindent\ignorespaces}%
+{\ignorespacesafterend\end{it}\end{quotation}}
+
+\newcommand{\assignmenttitle}[2]{\date{}\title{{\itshape#1}\\ {\Large\MakeLowercase{\scshape#2}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% General Mathematic Macros
+\newcommand{\qed}{\hfill \ensuremath{\Box}\newline\smallskip}
+
+\def\yields{\longrightarrow}
+\newcommand{\diff}[2]{\ensuremath{\frac{d#1}{d#2}}}
+\def\degree{\ensuremath{^\circ}}
+\newcommand{\jsum}[3]{\ensuremath{\displaystyle\sum_{#1=#2}^{#3}}}
+\def\fint[#1]#2#3{\ensuremath{\int#1#2\,d{#3}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Linguistics Macros
+\usepackage{ifthen,delarray,tipa}
+\newcommand{\phonarr}[1]{
+  \ifthenelse{\equal{#1}{}}{}{\ensuremath{
+    \begin{array}[c][ {l} ]
+      #1
+    \end{array}
+  }}
+}
+
+\newcommand{\genmap}[2]{#1\  $\to$\ #2}
+\newcommand{\phonmap}[2]{\genmap{\textipa{#1}}{\textipa{#2}}}
+\newcommand{\featmap}[2]{\genmap{\phonarr{#1}}{\phonarr{#2}}}
+
+\newcommand{\genrule}[4]{
+  \genmap{#1}{#2}\ /\ %
+  #3\ $\rule{2em}{0.5pt}$\ #4
+}
+
+\newcommand{\phonrule}[4]{\genrule{\textipa{#1}}{\textipa{#2}}{\textipa{#3}}{\textipa{#4}}}
+\newcommand{\featrule}[4]{\phonrule{\phonarr{#1}}{\phonarr{#2}}{\phonarr{#3}}{\phonarr{#4}}}
+
+\def\fsyll{\,\rm{syll.}}
+\def\fnas{\,\rm{nas.}}
+\def\fcons{\,\rm{cons.}}
+\def\fcont{\,\rm{cont.}}
+\def\fvoc{\,\rm{voice}}
+\def\fdrs{\,\rm{dors.}}
+\def\flab{\,\rm{lab.}}
+\def\fant{\,\rm{ant.}}
+\def\fcgltt{\,\rm{constr.\ glott.}}
+
+\def\fhigh{\,\rm{high}}
+\def\flow{\,\rm{low}}
+\def\fback{\,\rm{back}}
+\def\ffront{\,\rm{front}}
+\def\ftense{\,\rm{tense}}
+\def\fround{\,\rm{round}}
+\def\flong{\,\rm{long}}
